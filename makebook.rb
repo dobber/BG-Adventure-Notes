@@ -13,9 +13,14 @@ authors='Сборник разкази'
 licence='Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported'
 language='bg'
 
+unless File.exist?(ebookconvert)
+  puts "Please install calibre command line tools first!"
+  exit 0
+end
+
 if ARGV.length == 0
   puts "You need to specify book format (all, fb2, mobi, epub, html).\nFor example: ./makebook epub"
-  exit
+  exit 0
 end
 
 format=ARGV[0] 
