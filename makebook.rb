@@ -18,7 +18,7 @@ unless File.exist?(ebookconvert)
   exit 0
 end
 
-if ARGV.length == 0
+if ARGV.length != 1
   puts "You need to specify book format (all, fb2, mobi, epub, html).\nFor example: ./makebook epub"
   exit 0
 end
