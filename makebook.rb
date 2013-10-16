@@ -62,6 +62,8 @@ elsif format == 'epub'
 elsif format == 'fb2'
   to_book(cmd,format)
 elsif format =='html'
+  # return nothing, just exit
 else
+  puts "Please select one of epub, mobi, fb2, html, all"
   exit 0
 end
