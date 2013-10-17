@@ -38,7 +38,7 @@ Dir[File.join(dir, '**')].sort.each do |booksdir|
   Dir[File.join(booksdir, '*.txt')].sort.each do |input|
     puts "processing #{input}"
     content = File.read(input)
-    content.gsub!(/Insert\s(\d+)\.jpg/, '![\1](' + booksdir + '/Images/\1.jpg)')
+    content.gsub!(/Insert\s(.*?)\.jpg/, '![\1](' + booksdir + '/Images/\1.jpg)')
     book_content << RDiscount.new(content).to_html
     end
 end
@@ -49,9 +49,10 @@ File.open("#{book_filename}.html", 'w') do |output|
   output.write(book_content)
 end
 
-cmd="#{ebookconvert} #{book_filename}.html #{book_filename}.format --authors '#{authors}' --comments '#{licence}' --level1-toc //h:h1 --level2-toc //h:h2 --level3-toc //h:h3 --language #{language}"
+cmd="#{ebookconvert} #{book_filename}.html #{book_filename}.format --authors '#{authors}' --comments '#{licence}' --level1-toc //h:h1 --level2-toc //h:h2 --level3-toc //h:h3 --language #{language} --change-justification=left"
 
 if format == 'all'
+  # fix this shit
   to_book(cmd,'mobi')
   to_book(cmd,'epub')
   to_book(cmd,'fb2')
