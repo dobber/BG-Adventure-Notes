@@ -21,3 +21,4 @@ doc/
 *.epub
 *.mobi
 *.fb2
+.project
