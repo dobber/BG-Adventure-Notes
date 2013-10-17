@@ -49,7 +49,7 @@ File.open("#{book_filename}.html", 'w') do |output|
   output.write(book_content)
 end
 
-cmd="#{ebookconvert} #{book_filename}.html #{book_filename}.format --authors '#{authors}' --comments '#{licence}' --level1-toc //h:h1 --level2-toc //h:h2 --level3-toc //h:h3 --language #{language} --change-justification=justify"
+cmd="#{ebookconvert} #{book_filename}.html #{book_filename}.format --cover 'cover.jpg' --authors '#{authors}' --comments '#{licence}' --level1-toc //h:h1 --level2-toc //h:h2 --level3-toc //h:h3 --language #{language} --change-justification=justify"
 
 if format == 'all'
   to_book(cmd, 'mobi')
