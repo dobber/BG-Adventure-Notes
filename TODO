@@ -1,7 +1,3 @@
-fix makeebook all
-
-clean ' \n' from end of lines
-
 figure out how big images should be
 
 figure out how quotes should be

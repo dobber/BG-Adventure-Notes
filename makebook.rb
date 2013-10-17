@@ -27,8 +27,8 @@ format=ARGV[0]
 
 # define methods
 def to_book(cmd, format)
-  cmd.gsub!(/format/, "#{format}")
-  system (cmd)
+  ebookcmd=cmd.gsub(/format/, "#{format}")
+  system (ebookcmd)
 end
 
 #begin main()
@@ -49,19 +49,18 @@ File.open("#{book_filename}.html", 'w') do |output|
   output.write(book_content)
 end
 
-cmd="#{ebookconvert} #{book_filename}.html #{book_filename}.format --authors '#{authors}' --comments '#{licence}' --level1-toc //h:h1 --level2-toc //h:h2 --level3-toc //h:h3 --language #{language} --change-justification=left"
+cmd="#{ebookconvert} #{book_filename}.html #{book_filename}.format --authors '#{authors}' --comments '#{licence}' --level1-toc //h:h1 --level2-toc //h:h2 --level3-toc //h:h3 --language #{language} --change-justification=justify"
 
 if format == 'all'
-  # fix this shit
-  to_book(cmd,'mobi')
-  to_book(cmd,'epub')
-  to_book(cmd,'fb2')
+  to_book(cmd, 'mobi')
+  to_book(cmd, 'epub')
+  to_book(cmd, 'fb2')
 elsif format == 'mobi'
-  to_book(cmd,format)
+  to_book(cmd, format)
 elsif format == 'epub'
-  to_book(cmd,format)
+  to_book(cmd, format)
 elsif format == 'fb2'
-  to_book(cmd,format)
+  to_book(cmd, format)
 elsif format =='html'
   # return nothing, just exit
 else
