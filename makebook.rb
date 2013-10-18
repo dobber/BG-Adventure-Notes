@@ -28,7 +28,7 @@ format=ARGV[0]
 # define methods
 def to_book(cmd, format)
   ebookcmd=cmd.gsub(/format/, "#{format}")
-  system (ebookcmd)
+  system(ebookcmd)
 end
 
 #begin main()
